@@ -1,0 +1,35 @@
+-- managed by puppet
+
+settings = {
+           logfile    = '<%= @logfile %>',
+	   statusFile = '<%= @statusfile %>', 
+           }
+
+sync {
+    default.rsync,
+    source   = '<%= @sync_source %>',
+    target   = '<%= @sync_target %>',
+<% if @lsyncd_version == "2.1" -%>
+    rsync    = {
+        binary     = '/usr/bin/rsync',
+        archive    = true,
+        compress   = true,
+        checksum   = true,
+        hard_links = true,
+	<% if @rsh != '' -%>
+	rsh        =  <%=  @rsh  -%>
+       <% end -%>
+       <% if @excludes == true -%>
+       excludeFrom = '<%= @lsyncd_excludes %>' 
+       <% end -%>
+    },
+<% end -%>
+<% if @lsyncd_version == "2.0" -%>
+     <% if @rsyncOpts != '' -%>
+     rsyncOpts   =  { <%=  @rsyncOpts  -%>  },
+     <% end -%>
+     <% if @excludes == true -%>
+     excludeFrom = '<%= @lsyncd_excludes %>' 
+     <% end -%>
+<% end -%>
+}
