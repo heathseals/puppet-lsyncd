@@ -12,6 +12,7 @@ class lsyncd::params {
   $logfile            = '/var/log/lsyncd.log'
   $statusfile         = '/var/log/lsyncd.status'
   $rsh                = ''
+  $rsyncOpts          = ''
 
   case $::osfamily {
     debian: {
