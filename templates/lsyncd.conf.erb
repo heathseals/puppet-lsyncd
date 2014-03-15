@@ -2,7 +2,7 @@
 
 settings = {
            logfile    = '<%= @logfile %>',
-           statusFile = '<%= @statusfile %>', 
+           statusFile = '<%= @statusfile %>',
            }
 
 sync {
@@ -11,20 +11,20 @@ sync {
     target = '<%= @sync_target %>',
 <% if @lsyncd_version == "2.1" -%>
     rsync  = {
-             <% if @rsh != '' -%>
-             rsh = '<%=  @rsh  %>'
-             <% end -%>
-             <% if @excludes != '' -%>
-             excludeFrom = '<%= @excludes_file %>' 
-             <% end -%>
+             <%- if @rsh != '' -%>
+             rsh = <%=  @rsh  %>
+             <%- end -%>
              },
-             <% end -%>
+             <%- if @excludes != '' -%>
+             excludeFrom = '<%= @excludes_file %>'
+             <%- end -%>
+             <%- end -%>
 <% if @lsyncd_version == "2.0" -%>
-    <% if @rsyncOpts != '' -%>
-    rsyncOpts   =  { '<%=  @rsyncOpts  %>'  },
-    <% end -%>
-    <% if @excludes != '' -%>
-    excludeFrom = '<%= @excludes_file %>' 
-    <% end -%>
-<% end -%>
+    <%- if @rsyncOpts != '' -%>
+    rsyncOpts   =  { <%=  @rsyncOpts  %>  },
+    <%- end -%>
+    <%- if @excludes != '' -%>
+    excludeFrom = '<%= @excludes_file %>'
+    <%- end -%>
+<%- end -%>
 }
