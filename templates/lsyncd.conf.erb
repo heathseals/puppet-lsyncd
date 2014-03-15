@@ -19,8 +19,8 @@ sync {
 	<% if @rsh != '' -%>
 	rsh        =  <%=  @rsh  -%>
        <% end -%>
-       <% if @excludes == true -%>
-       excludeFrom = '<%= @lsyncd_excludes %>' 
+       <% if @excludes != '' -%>
+       excludeFrom = '<%= @excludes_file %>' 
        <% end -%>
     },
 <% end -%>
@@ -28,8 +28,8 @@ sync {
      <% if @rsyncOpts != '' -%>
      rsyncOpts   =  { <%=  @rsyncOpts  -%>  },
      <% end -%>
-     <% if @excludes == true -%>
-     excludeFrom = '<%= @lsyncd_excludes %>' 
+     <% if @excludes != '' -%>
+     excludeFrom = '<%= @excludes_file %>' 
      <% end -%>
 <% end -%>
 }
