@@ -17,7 +17,7 @@ sync {
         checksum   = true,
         hard_links = true,
 	<% if @rsh != '' -%>
-	rsh        =  <%=  @rsh  -%>
+	rsh        =  '<%=  @rsh  %>'
        <% end -%>
        <% if @excludes != '' -%>
        excludeFrom = '<%= @excludes_file %>' 
@@ -26,7 +26,7 @@ sync {
 <% end -%>
 <% if @lsyncd_version == "2.0" -%>
      <% if @rsyncOpts != '' -%>
-     rsyncOpts   =  { <%=  @rsyncOpts  -%>  },
+     rsyncOpts   =  { '<%=  @rsyncOpts  %>'  },
      <% end -%>
      <% if @excludes != '' -%>
      excludeFrom = '<%= @excludes_file %>' 
