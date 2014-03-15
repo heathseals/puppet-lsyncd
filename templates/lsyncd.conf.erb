@@ -20,7 +20,7 @@ sync {
 	rsh        =  '<%=  @rsh  %>'
        <% end -%>
        <% if @excludes != '' -%>
-       excludeFrom = '<%= @excludes_file %>' 
+       excludeFrom = <%= @excludes_file %>
        <% end -%>
     },
 <% end -%>
@@ -29,7 +29,7 @@ sync {
      rsyncOpts   =  { '<%=  @rsyncOpts  %>'  },
      <% end -%>
      <% if @excludes != '' -%>
-     excludeFrom = '<%= @excludes_file %>' 
+     excludeFrom = <%= @excludes_file %>
      <% end -%>
 <% end -%>
 }
