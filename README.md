@@ -19,7 +19,7 @@ class { 'lsyncd':
 
 ```puppet
 class { 'lsyncd':
-  sync_target => 'lily.nodata.org:/opt/mirror/',
+  sync_target => 'targethost:/opt/mirror/',
   sync_source => '/opt/mirror/',
   rsh         => '"/usr/bin/ssh -i /home/mirror/.ssh/id_rsa -l mirror",'
 }
@@ -29,7 +29,7 @@ class { 'lsyncd':
  
 ```puppet
 class { 'lsyncd':
-  sync_target  => 'lily.nodata.org:/opt/mirror-debian/',
+  sync_target  => 'targethost:/opt/mirror-debian/',
   sync_source  => '/opt/mirror-debian/',
   excludes     => [ "/nosync", "/nosync2" ],
   rsyncOpts    => '"-e /usr/bin/ssh -i /home/mirror/.ssh/id_rsa -l mirror", "-H"',
