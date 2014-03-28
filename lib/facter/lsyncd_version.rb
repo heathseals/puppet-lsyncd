@@ -7,7 +7,7 @@ Facter.add('lsyncd_version') do
       when /RedHat/
         version = %x{/bin/rpm -q --queryformat "%{VERSION}-%{RELEASE}" lsyncd}
       when /Debian/
-        version = %x{/usr/bin/dpkg-query -W -f='${Version}' lsyncd}
+        version = %x{/usr/bin/dpkg-query -W -f='${Version}' lsyncd 2>/dev/null}
       else
         version = 'undef'
     end
