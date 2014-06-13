@@ -40,7 +40,11 @@ class lsyncd (
   file { $config:
     content => template($config_tpl),
     notify  => Service[$lsyncd],
-    require => Package[$lsyncd],
+    require => File[$config_dir],
+  }
+
+  file { $config_dir:
+      ensure => "directory"
   }
 
   unless $excludes == '' {
