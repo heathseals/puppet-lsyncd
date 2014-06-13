@@ -1,16 +1,17 @@
 class lsyncd::params {
 
-  $sync_source  = ''
-  $sync_target  = ''
-  $active       = true
-  $lsyncd       = 'lsyncd'
-  $config_tpl   = 'lsyncd/lsyncd.conf.erb'
-  $excludes     = []
-  $excludes_tpl = 'lsyncd/lsyncd-excludes.erb'
-  $logfile      = '/var/log/lsyncd.log'
-  $statusfile   = '/var/log/lsyncd.status'
-  $rsh          = ''
-  $rsyncOpts    = ''
+  $sync_source    = ''
+  $sync_target    = ''
+  $active         = true
+  $lsyncd         = 'lsyncd'
+  $config_tpl     = 'lsyncd/lsyncd.conf.erb'
+  $excludes       = []
+  $excludes_tpl   = 'lsyncd/lsyncd-excludes.erb'
+  $logfile        = '/var/log/lsyncd.log'
+  $statusfile     = '/var/log/lsyncd.status'
+  $rsh            = ''
+  $rsyncOpts      = ''
+  $package_ensure = 'installed'
 
   case $::osfamily {
     debian: {
